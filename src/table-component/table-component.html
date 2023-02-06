@@ -20,8 +20,8 @@
   <input type="text" class="col-6" ref="buttonContent" placeholder="This input changes button textcontent">
 </div>
   <div class="d-flex justify-content-center">
-    <button click.trigger="changeTableValues()" class="btn btn-primary m-5">Change values</button>
-    <button click.trigger="changeTableValuesToOld()" class="btn btn-danger m-5">Get back old values</button>
+    <button click.trigger="changeTableValues()" class="btn btn-success m-5">Change values</button>
+    <button click.trigger="changeTableValuesToOld()" class="btn btn-success m-5">Get back old values</button>
     <button class="btn btn-success text-white m-5">${buttonContent.value.length > 1 ? buttonContent.value : 'Change textcontent'}</button>
   </div>
   <let i.bind="0"></let>
