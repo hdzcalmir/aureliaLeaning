@@ -1,0 +1,39 @@
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Size</th>
+        <th scope="col">Tag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">${dummyData.id}</th>
+        <td textcontent.bind = dummyData.name></td>
+        <td textcontent.bind = dummyData.size></td>
+        <td textcontent.bind = dummyData.name></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center">
+  <input type="text" class="col-6" ref="buttonContent" placeholder="This input changes button textcontent">
+</div>
+  <div class="d-flex justify-content-center">
+    <button click.trigger="changeTableValues()" class="btn btn-primary m-5">Change values</button>
+    <button click.trigger="changeTableValuesToOld()" class="btn btn-danger m-5">Get back old values</button>
+    <button class="btn btn-success text-white m-5">${buttonContent.value.length > 1 ? buttonContent.value : 'Change textcontent'}</button>
+  </div>
+  <let i.bind="0"></let>
+    <div class="d-flex justify-content-center" promise.bind="fetchAdvice(i)">
+    <span pending>Fetching advice...</span>
+    <span then.from-view="data" class="d-flex flex-column">
+        Advice id: ${data.slip.id}<br>
+        ${data.slip.advice}
+        <button class="btn btn-success d-flex m-2 justify-content-center" click.trigger="i = i+1">try again</button>
+    </span>
+    <span catch.from-view="err">
+        Cannot get an advice, error: ${err}
+        <button click.trigger="i = i+1">try again</button>
+    </span>
+    </div>
